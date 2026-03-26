@@ -3,68 +3,122 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C674902C524B4DEB9A577068 /* DialedInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3E98DB63B46228612C538 /* DialedInApp.swift */; };
-		86354539C82B4942BDBFC7EC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215D34468F1493B8A7DCE44 /* Reminder.swift */; };
-		E1F4D961AA524F83B938A731 /* ReminderEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C7014CC4143C79A8A3D91 /* ReminderEntry.swift */; };
-		9090568EF5B44D349F180BB4 /* ActivitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08249AA3384ED5B69E6428 /* ActivitySession.swift */; };
-		1346AFBD02C84821AF937D72 /* TimerActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA380375BA4BF4BE5E1FF9 /* TimerActivityAttributes.swift */; };
-		492E8E755ABF44EF96B268CD /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7574C875F42FA85E9D6BF /* ActivityType.swift */; };
-		BF149F49390341BB8136632D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74668E6890E7471E84E2376C /* Activity.swift */; };
-		8CE10C9B6F674F5383DDDEAA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1482BEDC0DB64D6CB28245B4 /* SettingsView.swift */; };
-		4D298FAE627D48A0AEB0B88E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7386A2A3A1484D71827B5FB5 /* HomeView.swift */; };
-		41717C910EC743379BF66632 /* ProgressOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E848E8E32D14F0DB7A03DFE /* ProgressOverviewView.swift */; };
-		CD1A239CF4CE4418A9823875 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017398D31564D6C814C7DE8 /* ContentView.swift */; };
-		54B8DA6B92954E1A8A766E25 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025AFA85307A49B7962E2B9B /* SessionDetailView.swift */; };
-		5599C0185B0144888DA8E13A /* ActivitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA17E6368E40129E711276 /* ActivitiesListView.swift */; };
-		A13EF00764DE49ACB5669CCC /* StartSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0696B891EDE40DFA8C3D2C6 /* StartSessionView.swift */; };
-		E886925CE9294A569EBD51C6 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CB6040B40F408DAE26C7F3 /* SessionHistoryView.swift */; };
-		9AB9C858E3FE40CBB6CC044F /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E8E423324132A0604387 /* ActiveTimerView.swift */; };
-		DDE4E5030B354778926F7E01 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E353BC96646AFAADD9C1A /* AddActivityView.swift */; };
-		F329CD0B467D46568DA24B4D /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA8FE8E440A41A1BC95C09B /* ReminderDetailView.swift */; };
-		350454BDDF77402BB7AD16E1 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAF54F328CA4689B59921AB /* AddReminderView.swift */; };
-		B2D8A3E4C5C845579FD5DFF9 /* ReminderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F101B81FFB24792A95E9CE8 /* ReminderRowView.swift */; };
-		60AB1CFDE8F44C3581AEB8C3 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15A4A6D0B64A54BF3301EF /* RemindersListView.swift */; };
-		5A8303DC110E4F1A91562098 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB3DEE0B74011B2DF431C /* NotificationService.swift */; };
-		7FD5D05B44C344BBAA14225E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0CBC972974F32814A35FE /* HealthKitService.swift */; };
-		2E1BFEA2DC2046E4AB2526B7 /* LiveActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B6549210AA4EEA92967DAA /* LiveActivityService.swift */; };
-		6DA103A406B548D58E27544C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF63E84209804CA5813DBF19 /* Assets.xcassets */; };
+		0950FE0BDCB144738C28ADA2 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C5F658A7B64321B39DB5F9 /* SessionDetailView.swift */; };
+		0AD4B24C91FC4C1FA29098E2 /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CD97DC699E4800A7DBA67D /* ActivityType.swift */; };
+		12CDAC30EEC34166BF1381C9 /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFC52457F7A4558A66749DF /* ReminderDetailView.swift */; };
+		15C5568D57F74879B3A3F0EE /* ReminderEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8568DCE0570D4FD08F54642E /* ReminderEntry.swift */; };
+		1622FB8D443641DBBDD0632D /* TimerActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F9C660F1A4CA190E02BF3 /* TimerActivityAttributes.swift */; };
+		1C97442732F241C899EEC538 /* ProgressOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E063FABFB4B4EDF9EA3AD10 /* ProgressOverviewView.swift */; };
+		1D5158F617F449988FEFF924 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF80FBA1B5441A805F23BB /* NotificationService.swift */; };
+		1F1A797D2E2F4F63A2490BD0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803BAFCC05545FF89CD791C /* HomeView.swift */; };
+		33184C996B07476D9D753B79 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3CB2C05C949B686DE1C9D /* Activity.swift */; };
+		38D1B20F518A4342BE761B08 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF1E1233E14DB48F0995C2 /* SettingsView.swift */; };
+		45F674BD928441C4AE194F0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F05C99E38C14383932B0AA8 /* Assets.xcassets */; };
+		4C8501472F75F3B5009446F2 /* TimerActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F9C660F1A4CA190E02BF3 /* TimerActivityAttributes.swift */; };
+		4CF27EDD2F75F04800FEA5CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF27EDC2F75F04800FEA5CC /* WidgetKit.framework */; };
+		4CF27EDF2F75F04800FEA5CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF27EDE2F75F04800FEA5CC /* SwiftUI.framework */; };
+		4CF27EF02F75F04A00FEA5CC /* DialedInTimerExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4CF27EDA2F75F04800FEA5CC /* DialedInTimerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		52ABA8C3CC4945B9AB574E15 /* ActivitiesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF048136C44886BE42EC8C /* ActivitiesListView.swift */; };
+		5FF4A41800034684859D1E92 /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B640C989F443C1902BF9FD /* ActiveTimerView.swift */; };
+		70507993B7E74ABA9A3E2082 /* StartSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B3687F60214E36934D1A12 /* StartSessionView.swift */; };
+		7BE64FBFD5CF4E0CAD936B83 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF7B3E094C4B65BB0204DA /* Reminder.swift */; };
+		7D56768D94F246569DD4C16D /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3746613664174DA0A79D152F /* AddActivityView.swift */; };
+		85124104AF6A4126B71B1C95 /* LiveActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC1703A39648FA880EB793 /* LiveActivityService.swift */; };
+		8A5C912AAD0E4FE681B7146D /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED871B446EC4634AE400334 /* HealthKitService.swift */; };
+		8A5CE84A4FCD42EB9970474A /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159BF95A5F88435085C8CB14 /* AddReminderView.swift */; };
+		9E92880563FE401CA30EBC0B /* ReminderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA2463F7004860B538C48C /* ReminderRowView.swift */; };
+		AAC6C13139664D2D8B083A90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5BD43650A24A8997682A7E /* ContentView.swift */; };
+		B2D35BBE0E734DCA8201B85E /* ActivitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C512C8DD54EB3AD853301 /* ActivitySession.swift */; };
+		B30EF82D6D6D4D3B8BE1ED25 /* DialedInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF9A535A914A3DB50BA4A5 /* DialedInApp.swift */; };
+		BC1DBC09604B49F39FFB9105 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A80DE35C4467EBC19B12C /* RemindersListView.swift */; };
+		F915F6EC04844EA6BD751462 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0556FCC7E464087C78EC0 /* SessionHistoryView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4CF27EEE2F75F04A00FEA5CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A42A564AA2AC4F04BDEE1C96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CF27ED92F75F04800FEA5CC;
+			remoteInfo = DialedInTimerExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CF27EF52F75F04A00FEA5CC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4CF27EF02F75F04A00FEA5CC /* DialedInTimerExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		B1B3E98DB63B46228612C538 /* DialedInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DialedInApp.swift"; sourceTree = "<group>"; };
-		E215D34468F1493B8A7DCE44 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder.swift"; sourceTree = "<group>"; };
-		718C7014CC4143C79A8A3D91 /* ReminderEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntry.swift"; sourceTree = "<group>"; };
-		4A08249AA3384ED5B69E6428 /* ActivitySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivitySession.swift"; sourceTree = "<group>"; };
-		61CA380375BA4BF4BE5E1FF9 /* TimerActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerActivityAttributes.swift"; sourceTree = "<group>"; };
-		78C7574C875F42FA85E9D6BF /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityType.swift"; sourceTree = "<group>"; };
-		74668E6890E7471E84E2376C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity.swift"; sourceTree = "<group>"; };
-		1482BEDC0DB64D6CB28245B4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
-		7386A2A3A1484D71827B5FB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView.swift"; sourceTree = "<group>"; };
-		2E848E8E32D14F0DB7A03DFE /* ProgressOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressOverviewView.swift"; sourceTree = "<group>"; };
-		C017398D31564D6C814C7DE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
-		025AFA85307A49B7962E2B9B /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionDetailView.swift"; sourceTree = "<group>"; };
-		F6DA17E6368E40129E711276 /* ActivitiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivitiesListView.swift"; sourceTree = "<group>"; };
-		E0696B891EDE40DFA8C3D2C6 /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StartSessionView.swift"; sourceTree = "<group>"; };
-		30CB6040B40F408DAE26C7F3 /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionHistoryView.swift"; sourceTree = "<group>"; };
-		96D9E8E423324132A0604387 /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActiveTimerView.swift"; sourceTree = "<group>"; };
-		114E353BC96646AFAADD9C1A /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddActivityView.swift"; sourceTree = "<group>"; };
-		8DA8FE8E440A41A1BC95C09B /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderDetailView.swift"; sourceTree = "<group>"; };
-		5EAF54F328CA4689B59921AB /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddReminderView.swift"; sourceTree = "<group>"; };
-		7F101B81FFB24792A95E9CE8 /* ReminderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderRowView.swift"; sourceTree = "<group>"; };
-		9B15A4A6D0B64A54BF3301EF /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersListView.swift"; sourceTree = "<group>"; };
-		754AB3DEE0B74011B2DF431C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationService.swift"; sourceTree = "<group>"; };
-		07E0CBC972974F32814A35FE /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitService.swift"; sourceTree = "<group>"; };
-		09B6549210AA4EEA92967DAA /* LiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LiveActivityService.swift"; sourceTree = "<group>"; };
-		BF63E84209804CA5813DBF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		604234C8406E49589B1B87EB /* DialedIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DialedIn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A3CB2C05C949B686DE1C9D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		159BF95A5F88435085C8CB14 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		1EBA2463F7004860B538C48C /* ReminderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRowView.swift; sourceTree = "<group>"; };
+		1ED871B446EC4634AE400334 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
+		2A5BD43650A24A8997682A7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2CCC1703A39648FA880EB793 /* LiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityService.swift; sourceTree = "<group>"; };
+		3746613664174DA0A79D152F /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
+		426F9C660F1A4CA190E02BF3 /* TimerActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityAttributes.swift; sourceTree = "<group>"; };
+		4CF27EDA2F75F04800FEA5CC /* DialedInTimerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DialedInTimerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CF27EDC2F75F04800FEA5CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4CF27EDE2F75F04800FEA5CC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		560A80DE35C4467EBC19B12C /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
+		5EBF9A535A914A3DB50BA4A5 /* DialedInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialedInApp.swift; sourceTree = "<group>"; };
+		66C5F658A7B64321B39DB5F9 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		78B640C989F443C1902BF9FD /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
+		7F05C99E38C14383932B0AA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8568DCE0570D4FD08F54642E /* ReminderEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEntry.swift; sourceTree = "<group>"; };
+		8E063FABFB4B4EDF9EA3AD10 /* ProgressOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverviewView.swift; sourceTree = "<group>"; };
+		92DF048136C44886BE42EC8C /* ActivitiesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesListView.swift; sourceTree = "<group>"; };
+		97CD97DC699E4800A7DBA67D /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
+		A4FF1E1233E14DB48F0995C2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A6DF80FBA1B5441A805F23BB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		AE9DF65A5F064CF68CAD3857 /* DialedIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DialedIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B63C512C8DD54EB3AD853301 /* ActivitySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySession.swift; sourceTree = "<group>"; };
+		BDFF7B3E094C4B65BB0204DA /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		D6B3687F60214E36934D1A12 /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionView.swift; sourceTree = "<group>"; };
+		E5E0556FCC7E464087C78EC0 /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
+		EFFC52457F7A4558A66749DF /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
+		F803BAFCC05545FF89CD791C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4C8501462F75F322009446F2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4CF27ED92F75F04800FEA5CC /* DialedInTimerExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4CF27EE02F75F04800FEA5CC /* DialedInTimer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4C8501462F75F322009446F2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DialedInTimer; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		7CA157FF82494E129150A616 /* Frameworks */ = {
+		4CF27ED72F75F04800FEA5CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF27EDF2F75F04800FEA5CC /* SwiftUI.framework in Frameworks */,
+				4CF27EDD2F75F04800FEA5CC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E04A2DA43D644E9896E52156 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,141 +128,182 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BFA310F2DF134E028F7A0880 = {
+		41C636BFFD4B4701A5CC09D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F5394ACFA5D4739A77BBA56 /* DialedIn */,
-				B855DFAE6B8540299443BC5B /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		B855DFAE6B8540299443BC5B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				604234C8406E49589B1B87EB /* DialedIn.app */,
+				AE9DF65A5F064CF68CAD3857 /* DialedIn.app */,
+				4CF27EDA2F75F04800FEA5CC /* DialedInTimerExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F5394ACFA5D4739A77BBA56 /* DialedIn */ = {
+		4CF27EDB2F75F04800FEA5CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1B3E98DB63B46228612C538 /* DialedInApp.swift */,
-				4CC4A4D39F8344F99002F216 /* Models */,
-				DDA9976FF9884B66A375DF39 /* Views */,
-				58BA627A04C144798807B41C /* ViewModels */,
-				AE320EBAAC284C2091BDCD60 /* Services */,
-				39E27586BFBB4A109FA75CF4 /* Resources */,
+				4CF27EDC2F75F04800FEA5CC /* WidgetKit.framework */,
+				4CF27EDE2F75F04800FEA5CC /* SwiftUI.framework */,
 			);
-			path = DialedIn;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4CC4A4D39F8344F99002F216 /* Models */ = {
+		51B5A08DF3CC479297923264 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				E215D34468F1493B8A7DCE44 /* Reminder.swift */,
-				718C7014CC4143C79A8A3D91 /* ReminderEntry.swift */,
-				4A08249AA3384ED5B69E6428 /* ActivitySession.swift */,
-				61CA380375BA4BF4BE5E1FF9 /* TimerActivityAttributes.swift */,
-				78C7574C875F42FA85E9D6BF /* ActivityType.swift */,
-				74668E6890E7471E84E2376C /* Activity.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		DDA9976FF9884B66A375DF39 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1482BEDC0DB64D6CB28245B4 /* SettingsView.swift */,
-				7386A2A3A1484D71827B5FB5 /* HomeView.swift */,
-				2E848E8E32D14F0DB7A03DFE /* ProgressOverviewView.swift */,
-				C017398D31564D6C814C7DE8 /* ContentView.swift */,
-				62221DE0DEFE4F17831DAD48 /* Activities */,
-				FD465E0E3BCA48F6B997D6A4 /* Reminders */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		62221DE0DEFE4F17831DAD48 /* Activities */ = {
-			isa = PBXGroup;
-			children = (
-				025AFA85307A49B7962E2B9B /* SessionDetailView.swift */,
-				F6DA17E6368E40129E711276 /* ActivitiesListView.swift */,
-				E0696B891EDE40DFA8C3D2C6 /* StartSessionView.swift */,
-				30CB6040B40F408DAE26C7F3 /* SessionHistoryView.swift */,
-				96D9E8E423324132A0604387 /* ActiveTimerView.swift */,
-				114E353BC96646AFAADD9C1A /* AddActivityView.swift */,
+				66C5F658A7B64321B39DB5F9 /* SessionDetailView.swift */,
+				92DF048136C44886BE42EC8C /* ActivitiesListView.swift */,
+				D6B3687F60214E36934D1A12 /* StartSessionView.swift */,
+				E5E0556FCC7E464087C78EC0 /* SessionHistoryView.swift */,
+				78B640C989F443C1902BF9FD /* ActiveTimerView.swift */,
+				3746613664174DA0A79D152F /* AddActivityView.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
 		};
-		FD465E0E3BCA48F6B997D6A4 /* Reminders */ = {
+		547D492238F740C380012173 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8DA8FE8E440A41A1BC95C09B /* ReminderDetailView.swift */,
-				5EAF54F328CA4689B59921AB /* AddReminderView.swift */,
-				7F101B81FFB24792A95E9CE8 /* ReminderRowView.swift */,
-				9B15A4A6D0B64A54BF3301EF /* RemindersListView.swift */,
+				7F05C99E38C14383932B0AA8 /* Assets.xcassets */,
 			);
-			path = Reminders;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		58BA627A04C144798807B41C /* ViewModels */ = {
+		7B78604EFBD14C7E9C529890 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A6DF80FBA1B5441A805F23BB /* NotificationService.swift */,
+				1ED871B446EC4634AE400334 /* HealthKitService.swift */,
+				2CCC1703A39648FA880EB793 /* LiveActivityService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7F7CE9E253634887B85F4918 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		AE320EBAAC284C2091BDCD60 /* Services */ = {
+		B3496BB4F1C14D58819CE9F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				754AB3DEE0B74011B2DF431C /* NotificationService.swift */,
-				07E0CBC972974F32814A35FE /* HealthKitService.swift */,
-				09B6549210AA4EEA92967DAA /* LiveActivityService.swift */,
+				A4FF1E1233E14DB48F0995C2 /* SettingsView.swift */,
+				F803BAFCC05545FF89CD791C /* HomeView.swift */,
+				8E063FABFB4B4EDF9EA3AD10 /* ProgressOverviewView.swift */,
+				2A5BD43650A24A8997682A7E /* ContentView.swift */,
+				51B5A08DF3CC479297923264 /* Activities */,
+				CF655ADDC96D484C92D4B902 /* Reminders */,
 			);
-			path = Services;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		39E27586BFBB4A109FA75CF4 /* Resources */ = {
+		C06331FBB5314ACF8F902A6C /* DialedIn */ = {
 			isa = PBXGroup;
 			children = (
-				BF63E84209804CA5813DBF19 /* Assets.xcassets */,
+				5EBF9A535A914A3DB50BA4A5 /* DialedInApp.swift */,
+				C14E8563617A4C71885E7AAD /* Models */,
+				B3496BB4F1C14D58819CE9F8 /* Views */,
+				7F7CE9E253634887B85F4918 /* ViewModels */,
+				7B78604EFBD14C7E9C529890 /* Services */,
+				547D492238F740C380012173 /* Resources */,
 			);
-			path = Resources;
+			path = DialedIn;
+			sourceTree = "<group>";
+		};
+		C14E8563617A4C71885E7AAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDFF7B3E094C4B65BB0204DA /* Reminder.swift */,
+				8568DCE0570D4FD08F54642E /* ReminderEntry.swift */,
+				B63C512C8DD54EB3AD853301 /* ActivitySession.swift */,
+				426F9C660F1A4CA190E02BF3 /* TimerActivityAttributes.swift */,
+				97CD97DC699E4800A7DBA67D /* ActivityType.swift */,
+				03A3CB2C05C949B686DE1C9D /* Activity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C55A9C5C9DC546FDB939E245 = {
+			isa = PBXGroup;
+			children = (
+				C06331FBB5314ACF8F902A6C /* DialedIn */,
+				4CF27EE02F75F04800FEA5CC /* DialedInTimer */,
+				4CF27EDB2F75F04800FEA5CC /* Frameworks */,
+				41C636BFFD4B4701A5CC09D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF655ADDC96D484C92D4B902 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				EFFC52457F7A4558A66749DF /* ReminderDetailView.swift */,
+				159BF95A5F88435085C8CB14 /* AddReminderView.swift */,
+				1EBA2463F7004860B538C48C /* ReminderRowView.swift */,
+				560A80DE35C4467EBC19B12C /* RemindersListView.swift */,
+			);
+			path = Reminders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E74CD6D3E6DE45DB91B32310 /* DialedIn */ = {
+		4CF27ED92F75F04800FEA5CC /* DialedInTimerExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C8ED7F96E5049538A95374B;
+			buildConfigurationList = 4CF27EF22F75F04A00FEA5CC /* Build configuration list for PBXNativeTarget "DialedInTimerExtension" */;
 			buildPhases = (
-				AB68AC7BAF564CE6AEEB2ED8 /* Sources */,
-				7CA157FF82494E129150A616 /* Frameworks */,
-				EF1779274D004F3D93891987 /* Resources */,
+				4CF27ED62F75F04800FEA5CC /* Sources */,
+				4CF27ED72F75F04800FEA5CC /* Frameworks */,
+				4CF27ED82F75F04800FEA5CC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				4CF27EE02F75F04800FEA5CC /* DialedInTimer */,
+			);
+			name = DialedInTimerExtension;
+			packageProductDependencies = (
+			);
+			productName = DialedInTimerExtension;
+			productReference = 4CF27EDA2F75F04800FEA5CC /* DialedInTimerExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E96FBDF3E7A24399984B988B /* DialedIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01C46C2F9EBC4F4482033602 /* Build configuration list for PBXNativeTarget "DialedIn" */;
+			buildPhases = (
+				FE87D32233E140B481A3D24E /* Sources */,
+				E04A2DA43D644E9896E52156 /* Frameworks */,
+				6EB9B9C80F0342809E3AAFDC /* Resources */,
+				4CF27EF52F75F04A00FEA5CC /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CF27EEF2F75F04A00FEA5CC /* PBXTargetDependency */,
+			);
 			name = DialedIn;
 			productName = DialedIn;
-			productReference = 604234C8406E49589B1B87EB;
+			productReference = AE9DF65A5F064CF68CAD3857 /* DialedIn.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		73665BB270E84371A8293B9A /* Project object */ = {
+		A42A564AA2AC4F04BDEE1C96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					4CF27ED92F75F04800FEA5CC = {
+						CreatedOnToolsVersion = 26.3;
+					};
+				};
 			};
-			buildConfigurationList = 7C48319A7F524DE78759D6D5;
+			buildConfigurationList = C59A3F281233443DBBBF46FD /* Build configuration list for PBXProject "DialedIn" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = bg;
 			hasScannedForEncodings = 0;
@@ -216,63 +311,284 @@
 				bg,
 				Base,
 			);
-			mainGroup = BFA310F2DF134E028F7A0880;
-			productRefGroup = B855DFAE6B8540299443BC5B;
+			mainGroup = C55A9C5C9DC546FDB939E245;
+			productRefGroup = 41C636BFFD4B4701A5CC09D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E74CD6D3E6DE45DB91B32310 /* DialedIn */,
+				E96FBDF3E7A24399984B988B /* DialedIn */,
+				4CF27ED92F75F04800FEA5CC /* DialedInTimerExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EF1779274D004F3D93891987 /* Resources */ = {
+		4CF27ED82F75F04800FEA5CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DA103A406B548D58E27544C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB9B9C80F0342809E3AAFDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45F674BD928441C4AE194F0D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AB68AC7BAF564CE6AEEB2ED8 /* Sources */ = {
+		4CF27ED62F75F04800FEA5CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C674902C524B4DEB9A577068 /* DialedInApp.swift in Sources */,
-				86354539C82B4942BDBFC7EC /* Reminder.swift in Sources */,
-				E1F4D961AA524F83B938A731 /* ReminderEntry.swift in Sources */,
-				9090568EF5B44D349F180BB4 /* ActivitySession.swift in Sources */,
-				1346AFBD02C84821AF937D72 /* TimerActivityAttributes.swift in Sources */,
-				492E8E755ABF44EF96B268CD /* ActivityType.swift in Sources */,
-				BF149F49390341BB8136632D /* Activity.swift in Sources */,
-				8CE10C9B6F674F5383DDDEAA /* SettingsView.swift in Sources */,
-				4D298FAE627D48A0AEB0B88E /* HomeView.swift in Sources */,
-				41717C910EC743379BF66632 /* ProgressOverviewView.swift in Sources */,
-				CD1A239CF4CE4418A9823875 /* ContentView.swift in Sources */,
-				54B8DA6B92954E1A8A766E25 /* SessionDetailView.swift in Sources */,
-				5599C0185B0144888DA8E13A /* ActivitiesListView.swift in Sources */,
-				A13EF00764DE49ACB5669CCC /* StartSessionView.swift in Sources */,
-				E886925CE9294A569EBD51C6 /* SessionHistoryView.swift in Sources */,
-				9AB9C858E3FE40CBB6CC044F /* ActiveTimerView.swift in Sources */,
-				DDE4E5030B354778926F7E01 /* AddActivityView.swift in Sources */,
-				F329CD0B467D46568DA24B4D /* ReminderDetailView.swift in Sources */,
-				350454BDDF77402BB7AD16E1 /* AddReminderView.swift in Sources */,
-				B2D8A3E4C5C845579FD5DFF9 /* ReminderRowView.swift in Sources */,
-				60AB1CFDE8F44C3581AEB8C3 /* RemindersListView.swift in Sources */,
-				5A8303DC110E4F1A91562098 /* NotificationService.swift in Sources */,
-				7FD5D05B44C344BBAA14225E /* HealthKitService.swift in Sources */,
-				2E1BFEA2DC2046E4AB2526B7 /* LiveActivityService.swift in Sources */,
+				4C8501472F75F3B5009446F2 /* TimerActivityAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE87D32233E140B481A3D24E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B30EF82D6D6D4D3B8BE1ED25 /* DialedInApp.swift in Sources */,
+				7BE64FBFD5CF4E0CAD936B83 /* Reminder.swift in Sources */,
+				15C5568D57F74879B3A3F0EE /* ReminderEntry.swift in Sources */,
+				B2D35BBE0E734DCA8201B85E /* ActivitySession.swift in Sources */,
+				1622FB8D443641DBBDD0632D /* TimerActivityAttributes.swift in Sources */,
+				0AD4B24C91FC4C1FA29098E2 /* ActivityType.swift in Sources */,
+				33184C996B07476D9D753B79 /* Activity.swift in Sources */,
+				38D1B20F518A4342BE761B08 /* SettingsView.swift in Sources */,
+				1F1A797D2E2F4F63A2490BD0 /* HomeView.swift in Sources */,
+				1C97442732F241C899EEC538 /* ProgressOverviewView.swift in Sources */,
+				AAC6C13139664D2D8B083A90 /* ContentView.swift in Sources */,
+				0950FE0BDCB144738C28ADA2 /* SessionDetailView.swift in Sources */,
+				52ABA8C3CC4945B9AB574E15 /* ActivitiesListView.swift in Sources */,
+				70507993B7E74ABA9A3E2082 /* StartSessionView.swift in Sources */,
+				F915F6EC04844EA6BD751462 /* SessionHistoryView.swift in Sources */,
+				5FF4A41800034684859D1E92 /* ActiveTimerView.swift in Sources */,
+				7D56768D94F246569DD4C16D /* AddActivityView.swift in Sources */,
+				12CDAC30EEC34166BF1381C9 /* ReminderDetailView.swift in Sources */,
+				8A5CE84A4FCD42EB9970474A /* AddReminderView.swift in Sources */,
+				9E92880563FE401CA30EBC0B /* ReminderRowView.swift in Sources */,
+				BC1DBC09604B49F39FFB9105 /* RemindersListView.swift in Sources */,
+				1D5158F617F449988FEFF924 /* NotificationService.swift in Sources */,
+				8A5C912AAD0E4FE681B7146D /* HealthKitService.swift in Sources */,
+				85124104AF6A4126B71B1C95 /* LiveActivityService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4CF27EEF2F75F04A00FEA5CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CF27ED92F75F04800FEA5CC /* DialedInTimerExtension */;
+			targetProxy = 4CF27EEE2F75F04A00FEA5CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		4B20421467724B0C8E32ABE0 /* Debug */ = {
+		424C6C24F203434FA02179AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YK9AYR37Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DialedIn;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "DialedIn uses the camera for progress photos.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "DialedIn reads your health data to track fitness goals.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialedin.app2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		466C965B850E43E8805EB94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CF27EF32F75F04A00FEA5CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YK9AYR37Y;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DialedInTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DialedInTimer;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialedin.app2.DialedInTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4CF27EF42F75F04A00FEA5CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YK9AYR37Y;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DialedInTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DialedInTimer;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialedin.app2.DialedInTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5734C432545244E0A14D5928 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,36 +614,21 @@
 			};
 			name = Debug;
 		};
-		D557C98BFEF04A5BB0A5DCAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		BA8A8B001F5D4A0BAC302B77 /* Debug */ = {
+		573CCCA77A7D4BE488810959 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YK9AYR37Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DialedIn;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "DialedIn uses the camera for progress photos.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "DialedIn reads your health data to track fitness goals.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -338,67 +639,46 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dialedin.app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialedin.app2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		27DE2DFE18C942DCAE027421 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = DialedIn;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_NSCameraUsageDescription = "DialedIn uses the camera for progress photos.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "DialedIn reads your health data to track fitness goals.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dialedin.app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7C48319A7F524DE78759D6D5 /* Build configuration list for PBXProject */ = {
+		01C46C2F9EBC4F4482033602 /* Build configuration list for PBXNativeTarget "DialedIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B20421467724B0C8E32ABE0 /* Debug */,
-				D557C98BFEF04A5BB0A5DCAD /* Release */,
+				573CCCA77A7D4BE488810959 /* Debug */,
+				424C6C24F203434FA02179AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C8ED7F96E5049538A95374B /* Build configuration list for PBXNativeTarget */ = {
+		4CF27EF22F75F04A00FEA5CC /* Build configuration list for PBXNativeTarget "DialedInTimerExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA8A8B001F5D4A0BAC302B77 /* Debug */,
-				27DE2DFE18C942DCAE027421 /* Release */,
+				4CF27EF32F75F04A00FEA5CC /* Debug */,
+				4CF27EF42F75F04A00FEA5CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C59A3F281233443DBBBF46FD /* Build configuration list for PBXProject "DialedIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5734C432545244E0A14D5928 /* Debug */,
+				466C965B850E43E8805EB94D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
-	rootObject = 73665BB270E84371A8293B9A /* Project object */;
+	rootObject = A42A564AA2AC4F04BDEE1C96 /* Project object */;
 }

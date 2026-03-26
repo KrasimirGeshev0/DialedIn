@@ -1,7 +1,10 @@
 import SwiftUI
 
-/// Form for creating a new activity type.
+/// Form for creating or editing an activity type.
 struct AddActivityView: View {
+
+    /// Pass an existing activity to edit it. Leave nil to create new.
+    var editingActivity: Activity?
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -11,6 +14,8 @@ struct AddActivityView: View {
     @State private var selectedIcon: String = "dumbbell.fill"
     @State private var selectedColorHex: String = "#EF4444"
     @State private var durationMinutes: Int = 30
+
+    private var isEditing: Bool { editingActivity != nil }
 
     private let iconOptions = [
         "dumbbell.fill", "figure.run", "book.fill", "brain.head.profile",
@@ -37,12 +42,14 @@ struct AddActivityView: View {
                         }
                     }
                     .onChange(of: activityType) { _, newType in
-                        if name.isEmpty || ActivityType.allCases.map(\.displayName).contains(name) {
+                        if !isEditing && (name.isEmpty || ActivityType.allCases.map(\.displayName).contains(name)) {
                             name = newType.displayName
                         }
                         selectedIcon = newType.defaultIcon
                         selectedColorHex = newType.defaultColorHex
-                        durationMinutes = newType.defaultDurationSeconds / 60
+                        if !isEditing {
+                            durationMinutes = newType.defaultDurationSeconds / 60
+                        }
                     }
                 }
 
@@ -93,7 +100,7 @@ struct AddActivityView: View {
                     Stepper("\(durationMinutes) мин", value: $durationMinutes, in: 5...180, step: 5)
                 }
             }
-            .navigationTitle("Нова активност")
+            .navigationTitle(isEditing ? "Редактиране" : "Нова активност")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -104,21 +111,41 @@ struct AddActivityView: View {
                         .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
-            .onAppear {
-                name = activityType.displayName
-            }
+            .onAppear { loadExistingData() }
         }
     }
 
+    private func loadExistingData() {
+        guard let a = editingActivity else {
+            name = activityType.displayName
+            return
+        }
+        name = a.name
+        activityType = a.activityType
+        selectedIcon = a.icon
+        selectedColorHex = a.colorHex
+        durationMinutes = a.defaultDurationSeconds / 60
+    }
+
     private func saveActivity() {
-        let activity = Activity(
-            name: name.trimmingCharacters(in: .whitespaces),
-            activityType: activityType,
-            icon: selectedIcon,
-            colorHex: selectedColorHex,
-            defaultDurationSeconds: durationMinutes * 60
-        )
-        modelContext.insert(activity)
+        if let a = editingActivity {
+            // Update existing
+            a.name = name.trimmingCharacters(in: .whitespaces)
+            a.activityType = activityType
+            a.icon = selectedIcon
+            a.colorHex = selectedColorHex
+            a.defaultDurationSeconds = durationMinutes * 60
+        } else {
+            // Create new
+            let activity = Activity(
+                name: name.trimmingCharacters(in: .whitespaces),
+                activityType: activityType,
+                icon: selectedIcon,
+                colorHex: selectedColorHex,
+                defaultDurationSeconds: durationMinutes * 60
+            )
+            modelContext.insert(activity)
+        }
         dismiss()
     }
 }

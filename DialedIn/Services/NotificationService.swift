@@ -23,16 +23,14 @@ final class NotificationService {
 
     /// Schedule a daily reminder notification.
     func scheduleReminder(for reminder: Reminder) {
-        guard let hour = reminder.reminderHour, let minute = reminder.reminderMinute else { return }
-
         let content = UNMutableNotificationContent()
         content.title = "DialedIn"
         content.body = "Време е за: \(reminder.name)"
         content.sound = .default
 
         var dateComponents = DateComponents()
-        dateComponents.hour = hour
-        dateComponents.minute = minute
+        dateComponents.hour = reminder.reminderHour
+        dateComponents.minute = reminder.reminderMinute
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let identifier = "reminder-\(reminder.name)"

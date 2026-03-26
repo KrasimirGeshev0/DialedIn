@@ -22,8 +22,8 @@ final class Reminder {
     var createdAt: Date
     var isActive: Bool
 
-    var reminderHour: Int?
-    var reminderMinute: Int?
+    var reminderHour: Int
+    var reminderMinute: Int
     var sortOrder: Int
 
     @Relationship(deleteRule: .cascade)
@@ -62,8 +62,8 @@ final class Reminder {
         trackingType: TrackingType = .boolean,
         targetValue: Double = 1.0,
         unit: String = "",
-        reminderHour: Int? = nil,
-        reminderMinute: Int? = nil,
+        reminderHour: Int = 9,
+        reminderMinute: Int = 0,
         sortOrder: Int = 0
     ) {
         self.name = name

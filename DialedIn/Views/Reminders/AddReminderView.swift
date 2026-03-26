@@ -1,7 +1,10 @@
 import SwiftUI
 
-/// Form for creating a new reminder.
+/// Form for creating or editing a reminder.
 struct AddReminderView: View {
+
+    /// Pass an existing reminder to edit it. Leave nil to create new.
+    var editingReminder: Reminder?
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -12,8 +15,9 @@ struct AddReminderView: View {
     @State private var trackingType: TrackingType = .boolean
     @State private var targetValue = ""
     @State private var unit = ""
-    @State private var enableReminder = false
-    @State private var reminderTime = Date()
+    @State private var reminderTime = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date()
+
+    private var isEditing: Bool { editingReminder != nil }
 
     private let iconOptions = [
         "checkmark.circle", "sun.max.fill", "moon.fill", "drop.fill",
@@ -89,14 +93,11 @@ struct AddReminderView: View {
                     }
                 }
 
-                Section("Напомняне") {
-                    Toggle("Ежедневно напомняне", isOn: $enableReminder)
-                    if enableReminder {
-                        DatePicker("Час", selection: $reminderTime, displayedComponents: .hourAndMinute)
-                    }
+                Section("Ежедневно напомняне") {
+                    DatePicker("Час на напомняне", selection: $reminderTime, displayedComponents: .hourAndMinute)
                 }
             }
-            .navigationTitle("Ново напомняне")
+            .navigationTitle(isEditing ? "Редактиране" : "Ново напомняне")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -107,27 +108,50 @@ struct AddReminderView: View {
                         .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
+            .onAppear { loadExistingData() }
         }
+    }
+
+    private func loadExistingData() {
+        guard let r = editingReminder else { return }
+        name = r.name
+        selectedIcon = r.icon
+        selectedColorHex = r.colorHex
+        trackingType = r.trackingType
+        targetValue = r.targetValue > 1 ? String(r.targetValue) : ""
+        unit = r.unit
+        reminderTime = Calendar.current.date(bySettingHour: r.reminderHour, minute: r.reminderMinute, second: 0, of: Date()) ?? Date()
     }
 
     private func saveReminder() {
         let calendar = Calendar.current
         let target = Double(targetValue) ?? 1.0
 
-        let reminder = Reminder(
-            name: name.trimmingCharacters(in: .whitespaces),
-            icon: selectedIcon,
-            colorHex: selectedColorHex,
-            trackingType: trackingType,
-            targetValue: trackingType == .boolean ? 1.0 : target,
-            unit: unit,
-            reminderHour: enableReminder ? calendar.component(.hour, from: reminderTime) : nil,
-            reminderMinute: enableReminder ? calendar.component(.minute, from: reminderTime) : nil
-        )
-
-        modelContext.insert(reminder)
-
-        if enableReminder {
+        if let r = editingReminder {
+            // Update existing
+            NotificationService.shared.cancelReminder(for: r)
+            r.name = name.trimmingCharacters(in: .whitespaces)
+            r.icon = selectedIcon
+            r.colorHex = selectedColorHex
+            r.trackingType = trackingType
+            r.targetValue = trackingType == .boolean ? 1.0 : target
+            r.unit = unit
+            r.reminderHour = calendar.component(.hour, from: reminderTime)
+            r.reminderMinute = calendar.component(.minute, from: reminderTime)
+            NotificationService.shared.scheduleReminder(for: r)
+        } else {
+            // Create new
+            let reminder = Reminder(
+                name: name.trimmingCharacters(in: .whitespaces),
+                icon: selectedIcon,
+                colorHex: selectedColorHex,
+                trackingType: trackingType,
+                targetValue: trackingType == .boolean ? 1.0 : target,
+                unit: unit,
+                reminderHour: calendar.component(.hour, from: reminderTime),
+                reminderMinute: calendar.component(.minute, from: reminderTime)
+            )
+            modelContext.insert(reminder)
             NotificationService.shared.scheduleReminder(for: reminder)
         }
 

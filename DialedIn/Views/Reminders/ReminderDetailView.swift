@@ -10,6 +10,7 @@ struct ReminderDetailView: View {
 
     @State private var todayValue: String = ""
     @State private var todayNote: String = ""
+    @State private var showingEdit = false
 
     private var recentEntries: [ReminderEntry] {
         let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
@@ -36,6 +37,18 @@ struct ReminderDetailView: View {
         .navigationTitle(reminder.name)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color(.systemGroupedBackground))
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showingEdit = true
+                } label: {
+                    Image(systemName: "pencil")
+                }
+            }
+        }
+        .sheet(isPresented: $showingEdit) {
+            AddReminderView(editingReminder: reminder)
+        }
         .onAppear {
             if let entry = todayEntry {
                 todayValue = entry.value > 0 ? String(entry.value) : ""

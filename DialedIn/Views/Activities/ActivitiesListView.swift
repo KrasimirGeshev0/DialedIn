@@ -8,6 +8,7 @@ struct ActivitiesListView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var showingAddActivity = false
     @State private var selectedActivity: Activity?
+    @State private var editingActivity: Activity?
     @State private var timerService = LiveActivityService.shared
 
     var body: some View {
@@ -40,6 +41,9 @@ struct ActivitiesListView: View {
             .sheet(item: $selectedActivity) { activity in
                 StartSessionView(activity: activity)
             }
+            .sheet(item: $editingActivity) { activity in
+                AddActivityView(editingActivity: activity)
+            }
         }
     }
 
@@ -54,6 +58,11 @@ struct ActivitiesListView: View {
                     }
                 }
                 .contextMenu {
+                    Button {
+                        editingActivity = activity
+                    } label: {
+                        Label("Редактирай", systemImage: "pencil")
+                    }
                     NavigationLink(destination: SessionHistoryView(activity: activity)) {
                         Label("История", systemImage: "clock")
                     }

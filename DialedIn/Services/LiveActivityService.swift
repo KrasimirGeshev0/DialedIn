@@ -83,6 +83,12 @@ final class LiveActivityService {
     // MARK: - Live Activity (lock screen / Dynamic Island)
 
     private func startLiveActivity(name: String, icon: String, colorHex: String, endTime: Date, durationSeconds: Int) {
+        guard ActivityAuthorizationInfo().areActivitiesEnabled else {
+            print("Live Activities are DISABLED on this device. Enable in Settings > DialedIn > Live Activities")
+            return
+        }
+        print("Live Activities are enabled, starting...")
+
         let attributes = TimerActivityAttributes(
             activityName: name,
             iconName: icon,
@@ -101,9 +107,10 @@ final class LiveActivityService {
                 content: .init(state: state, staleDate: nil),
                 pushType: nil
             )
+            print("Live Activity started successfully! ID: \(currentLiveActivity?.id ?? "unknown")")
         } catch {
-            // Fails on simulators without Dynamic Island -- that's expected
-            print("Live Activity not available: \(error.localizedDescription)")
+            print("Live Activity FAILED: \(error)")
+            print("Error type: \(type(of: error))")
         }
     }
 
