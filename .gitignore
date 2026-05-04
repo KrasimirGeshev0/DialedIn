@@ -34,3 +34,6 @@ fastlane/test_output
 .DS_Store
 *.swp
 *~.nib
+
+# Secrets
+DialedIn/Services/APIKeys.swift
