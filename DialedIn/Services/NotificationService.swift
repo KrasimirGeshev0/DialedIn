@@ -1,8 +1,6 @@
 import Foundation
 import UserNotifications
 
-/// Service responsible for scheduling and managing local push notifications.
-/// Singleton pattern -- accessed as NotificationService.shared.
 final class NotificationService {
 
     static let shared = NotificationService()
@@ -11,22 +9,26 @@ final class NotificationService {
 
     private init() {}
 
-    /// Ask the user for permission to show notifications.
-    func requestPermission() {
+    func requestPermission(completion: @escaping (Result<Bool, AppError>) -> Void = { _ in }) {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if let error = error {
-                print("Notification permission error: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.unknownError(error.localizedDescription)))
+                } else if !granted {
+                    completion(.failure(.notificationPermissionDenied))
+                } else {
+                    completion(.success(true))
+                }
             }
-            print("Notifications permission granted: \(granted)")
         }
     }
 
-    /// Schedule a daily reminder notification.
-    func scheduleReminder(for reminder: Reminder) {
+    func scheduleReminder(for reminder: Reminder, completion: @escaping (Result<Void, AppError>) -> Void = { _ in }) {
         let content = UNMutableNotificationContent()
         content.title = "DialedIn"
-        content.body = "Време е за: \(reminder.name)"
+        content.body = "Напомняне: \(reminder.name)"
         content.sound = .default
+        content.userInfo = ["reminderName": reminder.name]
 
         var dateComponents = DateComponents()
         dateComponents.hour = reminder.reminderHour
@@ -37,19 +39,21 @@ final class NotificationService {
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
         center.add(request) { error in
-            if let error = error {
-                print("Failed to schedule notification: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.unknownError(error.localizedDescription)))
+                } else {
+                    completion(.success(()))
+                }
             }
         }
     }
 
-    /// Cancel the notification for a specific reminder.
     func cancelReminder(for reminder: Reminder) {
         let identifier = "reminder-\(reminder.name)"
         center.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 
-    /// Cancel all scheduled notifications.
     func cancelAll() {
         center.removeAllPendingNotificationRequests()
     }

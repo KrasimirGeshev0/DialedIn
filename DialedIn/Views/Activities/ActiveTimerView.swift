@@ -8,6 +8,7 @@ struct ActiveTimerView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @State private var timerService = LiveActivityService.shared
+    @State private var errorMessage: String?
 
     // Find the running session to update it when stopped
     @Query(filter: #Predicate<ActivitySession> { $0.endedAt == nil })
@@ -31,7 +32,7 @@ struct ActiveTimerView: View {
                     Circle()
                         .stroke(Color.gray.opacity(0.15), lineWidth: 14)
 
-                    if !timerService.isPaused, let end = timerService.endTime {
+                    if !timerService.isPaused, timerService.endTime != nil {
                         Circle()
                             .trim(from: 0, to: timerProgress)
                             .stroke(
@@ -46,7 +47,7 @@ struct ActiveTimerView: View {
                             Text("ПАУЗА")
                                 .font(.subheadline.weight(.medium))
                                 .foregroundStyle(.orange)
-                            Text(formatSeconds(timerService.remainingAtPause))
+                            Text(timerService.remainingAtPause.formattedAsTime)
                                 .font(.system(size: 52, weight: .bold, design: .monospaced))
                         } else if let end = timerService.endTime {
                             Text(timerInterval: Date.now...end, countsDown: true)
@@ -97,6 +98,14 @@ struct ActiveTimerView: View {
             }
         }
         .presentationDetents([.large])
+        .alert("Грешка", isPresented: Binding(
+            get: { errorMessage != nil },
+            set: { if !$0 { errorMessage = nil } }
+        )) {
+            Button("OK") { errorMessage = nil }
+        } message: {
+            Text(errorMessage ?? "")
+        }
     }
 
     // MARK: - Helpers
@@ -112,18 +121,18 @@ struct ActiveTimerView: View {
     }
 
     private func stopSession() {
-        // Mark the database session as finished
         if let session = runningSessions.first {
             session.finish(completed: true)
         }
+
+        do {
+            try modelContext.save()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
+        }
+
         timerService.endSession()
         dismiss()
-    }
-
-    private func formatSeconds(_ seconds: Int) -> String {
-        let m = seconds / 60
-        let s = seconds % 60
-        return String(format: "%d:%02d", m, s)
     }
 }
 

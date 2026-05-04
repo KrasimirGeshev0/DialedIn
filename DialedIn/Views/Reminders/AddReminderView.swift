@@ -16,6 +16,7 @@ struct AddReminderView: View {
     @State private var targetValue = ""
     @State private var unit = ""
     @State private var reminderTime = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date()
+    @State private var errorMessage: String?
 
     private var isEditing: Bool { editingReminder != nil }
 
@@ -37,7 +38,7 @@ struct AddReminderView: View {
         NavigationStack {
             Form {
                 Section("Име") {
-                    TextField("Напр. Сутрешна рутина", text: $name)
+                    TextField("Напр. Сутрешен навик", text: $name)
                         .textInputAutocapitalization(.sentences)
                 }
 
@@ -97,7 +98,7 @@ struct AddReminderView: View {
                     DatePicker("Час на напомняне", selection: $reminderTime, displayedComponents: .hourAndMinute)
                 }
             }
-            .navigationTitle(isEditing ? "Редактиране" : "Ново напомняне")
+            .navigationTitle(isEditing ? "Редактиране" : "Нов навик")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -109,6 +110,14 @@ struct AddReminderView: View {
                 }
             }
             .onAppear { loadExistingData() }
+            .alert("Грешка", isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            )) {
+                Button("OK") { errorMessage = nil }
+            } message: {
+                Text(errorMessage ?? "")
+            }
         }
     }
 
@@ -128,7 +137,6 @@ struct AddReminderView: View {
         let target = Double(targetValue) ?? 1.0
 
         if let r = editingReminder {
-            // Update existing
             NotificationService.shared.cancelReminder(for: r)
             r.name = name.trimmingCharacters(in: .whitespaces)
             r.icon = selectedIcon
@@ -140,7 +148,6 @@ struct AddReminderView: View {
             r.reminderMinute = calendar.component(.minute, from: reminderTime)
             NotificationService.shared.scheduleReminder(for: r)
         } else {
-            // Create new
             let reminder = Reminder(
                 name: name.trimmingCharacters(in: .whitespaces),
                 icon: selectedIcon,
@@ -155,7 +162,12 @@ struct AddReminderView: View {
             NotificationService.shared.scheduleReminder(for: reminder)
         }
 
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
+        }
     }
 }
 

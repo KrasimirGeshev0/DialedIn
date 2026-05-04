@@ -13,14 +13,6 @@ final class ActivitySession {
     var note: String
     var isCompleted: Bool
 
-    /// Extensibility field for v2+.
-    /// Will hold JSON-encoded type-specific data:
-    /// - Workout: exercises, sets, reps, weight
-    /// - Meal: calories, macros
-    /// - Run: distance, pace
-    /// In v1 this is always nil.
-    var metadataJSON: String?
-
     var activity: Activity?
 
     // MARK: - Computed
@@ -31,9 +23,7 @@ final class ActivitySession {
 
     var durationFormatted: String {
         let seconds = actualDurationSeconds ?? plannedDurationSeconds
-        let minutes = seconds / 60
-        let remainingSeconds = seconds % 60
-        return String(format: "%d:%02d", minutes, remainingSeconds)
+        return seconds.formattedAsTime
     }
 
     // MARK: - Init
@@ -48,7 +38,6 @@ final class ActivitySession {
         self.actualDurationSeconds = nil
         self.note = note
         self.isCompleted = false
-        self.metadataJSON = nil
     }
 
     /// Call when the session ends (timer done or user stops it).

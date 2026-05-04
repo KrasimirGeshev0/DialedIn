@@ -9,6 +9,7 @@ struct StartSessionView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var durationMinutes: Int = 30
+    @State private var errorMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -77,16 +78,29 @@ struct StartSessionView: View {
             .onAppear {
                 durationMinutes = activity.defaultDurationSeconds / 60
             }
+            .alert("Грешка", isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            )) {
+                Button("OK") { errorMessage = nil }
+            } message: {
+                Text(errorMessage ?? "")
+            }
         }
     }
 
     private func startSession() {
-        // Save session to database
         let session = ActivitySession(plannedDurationSeconds: durationMinutes * 60)
         session.activity = activity
         modelContext.insert(session)
 
-        // Start the timer (in-app bar + Live Activity on lock screen)
+        do {
+            try modelContext.save()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
+            return
+        }
+
         LiveActivityService.shared.startSession(
             name: activity.name,
             icon: activity.icon,

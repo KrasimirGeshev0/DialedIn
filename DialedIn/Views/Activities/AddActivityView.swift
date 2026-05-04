@@ -14,6 +14,7 @@ struct AddActivityView: View {
     @State private var selectedIcon: String = "dumbbell.fill"
     @State private var selectedColorHex: String = "#EF4444"
     @State private var durationMinutes: Int = 30
+    @State private var errorMessage: String?
 
     private var isEditing: Bool { editingActivity != nil }
 
@@ -34,15 +35,15 @@ struct AddActivityView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Тип активност") {
+                Section("Тип тренировка") {
                     Picker("Тип", selection: $activityType) {
-                        ForEach(ActivityType.allCases) { type in
+                        ForEach(ActivityType.trainingTypes, id: \.self) { type in
                             Label(type.displayName, systemImage: type.defaultIcon)
                                 .tag(type)
                         }
                     }
                     .onChange(of: activityType) { _, newType in
-                        if !isEditing && (name.isEmpty || ActivityType.allCases.map(\.displayName).contains(name)) {
+                        if !isEditing && (name.isEmpty || ActivityType.trainingTypes.map(\.displayName).contains(name)) {
                             name = newType.displayName
                         }
                         selectedIcon = newType.defaultIcon
@@ -100,7 +101,7 @@ struct AddActivityView: View {
                     Stepper("\(durationMinutes) мин", value: $durationMinutes, in: 5...180, step: 5)
                 }
             }
-            .navigationTitle(isEditing ? "Редактиране" : "Нова активност")
+            .navigationTitle(isEditing ? "Редактиране" : "Нова тренировка")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -112,6 +113,14 @@ struct AddActivityView: View {
                 }
             }
             .onAppear { loadExistingData() }
+            .alert("Грешка", isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            )) {
+                Button("OK") { errorMessage = nil }
+            } message: {
+                Text(errorMessage ?? "")
+            }
         }
     }
 
@@ -129,14 +138,12 @@ struct AddActivityView: View {
 
     private func saveActivity() {
         if let a = editingActivity {
-            // Update existing
             a.name = name.trimmingCharacters(in: .whitespaces)
             a.activityType = activityType
             a.icon = selectedIcon
             a.colorHex = selectedColorHex
             a.defaultDurationSeconds = durationMinutes * 60
         } else {
-            // Create new
             let activity = Activity(
                 name: name.trimmingCharacters(in: .whitespaces),
                 activityType: activityType,
@@ -146,7 +153,13 @@ struct AddActivityView: View {
             )
             modelContext.insert(activity)
         }
-        dismiss()
+
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
+        }
     }
 }
 

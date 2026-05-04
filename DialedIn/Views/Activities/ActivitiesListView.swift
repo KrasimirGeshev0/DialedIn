@@ -10,6 +10,7 @@ struct ActivitiesListView: View {
     @State private var selectedActivity: Activity?
     @State private var editingActivity: Activity?
     @State private var timerService = LiveActivityService.shared
+    @State private var errorMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -23,7 +24,7 @@ struct ActivitiesListView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Активности")
+            .navigationTitle("Тренировки")
             .background(Color(.systemGroupedBackground))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -43,6 +44,14 @@ struct ActivitiesListView: View {
             }
             .sheet(item: $editingActivity) { activity in
                 AddActivityView(editingActivity: activity)
+            }
+            .alert("Грешка", isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            )) {
+                Button("OK") { errorMessage = nil }
+            } message: {
+                Text(errorMessage ?? "")
             }
         }
     }
@@ -68,6 +77,11 @@ struct ActivitiesListView: View {
                     }
                     Button(role: .destructive) {
                         modelContext.delete(activity)
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            errorMessage = AppError.deleteFailed(error.localizedDescription).localizedDescription
+                        }
                     } label: {
                         Label("Изтрий", systemImage: "trash")
                     }
@@ -78,13 +92,13 @@ struct ActivitiesListView: View {
 
     private var emptyState: some View {
         VStack(spacing: 16) {
-            Image(systemName: "timer")
+            Image(systemName: "dumbbell.fill")
                 .font(.system(size: 60))
                 .foregroundStyle(.secondary)
-            Text("Няма активности")
+            Text("Няма тренировки")
                 .font(.title3)
                 .foregroundStyle(.secondary)
-            Text("Добавете първата си активност с бутона +")
+            Text("Добавете първата си тренировка с бутона +")
                 .font(.subheadline)
                 .foregroundStyle(.tertiary)
         }
@@ -121,12 +135,13 @@ struct ActivityCardView: View {
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
-                    .background(Color(hex: activity.colorHex), in: RoundedRectangle(cornerRadius: 8))
+                    .background(AppTheme.accent, in: RoundedRectangle(cornerRadius: 8))
             }
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: AppTheme.cardRadius))
+        .shadow(color: AppTheme.cardShadow, radius: AppTheme.cardShadowRadius, y: 2)
     }
 }
 

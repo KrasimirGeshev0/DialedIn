@@ -14,7 +14,7 @@ struct SessionDetailView: View {
                     row(label: "Край", value: end.formatted(.dateTime.hour().minute().day().month()))
                 }
 
-                row(label: "Планирано", value: formatSeconds(session.plannedDurationSeconds))
+                row(label: "Планирано", value: session.plannedDurationSeconds.formattedAsTime)
                 row(label: "Реално", value: session.durationFormatted)
 
                 HStack {
@@ -45,12 +45,6 @@ struct SessionDetailView: View {
             Text(value)
                 .foregroundStyle(.secondary)
         }
-    }
-
-    private func formatSeconds(_ seconds: Int) -> String {
-        let m = seconds / 60
-        let s = seconds % 60
-        return String(format: "%d:%02d", m, s)
     }
 }
 

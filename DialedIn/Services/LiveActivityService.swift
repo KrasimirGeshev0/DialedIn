@@ -24,6 +24,9 @@ final class LiveActivityService {
     // Live Activity (may fail on simulator -- that's OK)
     private var currentLiveActivity: ActivityKit.Activity<TimerActivityAttributes>?
 
+    // Error reporting
+    var lastError: AppError?
+
     // Expanded timer view toggle
     var showExpandedTimer = false
 
@@ -109,8 +112,7 @@ final class LiveActivityService {
             )
             print("Live Activity started successfully! ID: \(currentLiveActivity?.id ?? "unknown")")
         } catch {
-            print("Live Activity FAILED: \(error)")
-            print("Error type: \(type(of: error))")
+            lastError = .unknownError(error.localizedDescription)
         }
     }
 

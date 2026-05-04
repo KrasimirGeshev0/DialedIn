@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E96FBDF3E7A24399984B988B"
+               BlueprintIdentifier = "AAC9267AC1D54263BC5EFAD1"
                BuildableName = "DialedIn.app"
                BlueprintName = "DialedIn"
                ReferencedContainer = "container:DialedIn.xcodeproj">
@@ -43,7 +43,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E96FBDF3E7A24399984B988B"
+            BlueprintIdentifier = "AAC9267AC1D54263BC5EFAD1"
             BuildableName = "DialedIn.app"
             BlueprintName = "DialedIn"
             ReferencedContainer = "container:DialedIn.xcodeproj">

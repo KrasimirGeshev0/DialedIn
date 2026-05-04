@@ -1,46 +1,50 @@
 import SwiftUI
 import SwiftData
 
-/// Root view with tab bar + floating timer bar when a session is active.
 struct ContentView: View {
 
     @State private var timerService = LiveActivityService.shared
+    @State private var router = DeepLinkRouter.shared
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView {
+            TabView(selection: $router.selectedTab) {
                 HomeView()
                     .tabItem {
                         Label("Начало", systemImage: "house.fill")
                     }
-
-                RemindersListView()
-                    .tabItem {
-                        Label("Напомняния", systemImage: "checkmark.circle")
-                    }
+                    .tag(0)
 
                 ActivitiesListView()
                     .tabItem {
-                        Label("Активности", systemImage: "timer")
+                        Label("Тренировки", systemImage: "dumbbell.fill")
                     }
+                    .tag(1)
 
-                ProgressOverviewView()
+                MealsListView()
                     .tabItem {
-                        Label("Прогрес", systemImage: "chart.line.uptrend.xyaxis")
+                        Label("Хранене", systemImage: "fork.knife")
                     }
+                    .tag(2)
+
+                RemindersListView()
+                    .tabItem {
+                        Label("Навици", systemImage: "checkmark.circle")
+                    }
+                    .tag(3)
 
                 SettingsView()
                     .tabItem {
                         Label("Настройки", systemImage: "gearshape.fill")
                     }
+                    .tag(4)
             }
-            .tint(.blue)
+            .tint(AppTheme.accent)
 
-            // Floating timer bar above the tab bar
             if timerService.isRunning {
                 TimerBarView()
                     .padding(.horizontal, 12)
-                    .padding(.bottom, 52) // sits above the tab bar
+                    .padding(.bottom, 52)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                     .animation(.spring(duration: 0.3), value: timerService.isRunning)
             }
@@ -53,7 +57,6 @@ struct ContentView: View {
 
 // MARK: - Floating Timer Bar
 
-/// A compact bar showing the running timer. Tappable to expand.
 struct TimerBarView: View {
 
     @State private var timerService = LiveActivityService.shared
@@ -63,13 +66,12 @@ struct TimerBarView: View {
             timerService.showExpandedTimer = true
         } label: {
             HStack(spacing: 12) {
-                // Animated circle
                 ZStack {
                     Circle()
                         .stroke(Color.white.opacity(0.3), lineWidth: 3)
                         .frame(width: 36, height: 36)
 
-                    if !timerService.isPaused, let end = timerService.endTime {
+                    if !timerService.isPaused, let _ = timerService.endTime {
                         Circle()
                             .trim(from: 0, to: timerProgress)
                             .stroke(Color.white, style: StrokeStyle(lineWidth: 3, lineCap: .round))
@@ -82,7 +84,6 @@ struct TimerBarView: View {
                         .foregroundStyle(.white)
                 }
 
-                // Activity name
                 VStack(alignment: .leading, spacing: 2) {
                     Text(timerService.activityName)
                         .font(.subheadline.weight(.semibold))
@@ -97,9 +98,8 @@ struct TimerBarView: View {
 
                 Spacer()
 
-                // Countdown
                 if timerService.isPaused {
-                    Text(formatSeconds(timerService.remainingAtPause))
+                    Text(timerService.remainingAtPause.formattedAsTime)
                         .font(.body.monospacedDigit().weight(.bold))
                         .foregroundStyle(.white)
                 } else if let end = timerService.endTime {
@@ -108,7 +108,6 @@ struct TimerBarView: View {
                         .foregroundStyle(.white)
                 }
 
-                // Quick stop button
                 Button {
                     timerService.endSession()
                 } label: {
@@ -135,17 +134,13 @@ struct TimerBarView: View {
         return max(0, remaining / Double(timerService.totalDuration))
     }
 
-    private func formatSeconds(_ seconds: Int) -> String {
-        let m = seconds / 60
-        let s = seconds % 60
-        return String(format: "%d:%02d", m, s)
-    }
 }
 
 #Preview {
     ContentView()
         .modelContainer(for: [
             Reminder.self, ReminderEntry.self,
-            Activity.self, ActivitySession.self
+            Activity.self, ActivitySession.self,
+            Meal.self
         ], inMemory: true)
 }

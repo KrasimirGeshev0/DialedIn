@@ -49,6 +49,10 @@ enum ActivityType: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    static var trainingTypes: [ActivityType] {
+        [.workout, .run, .meditation, .custom]
+    }
+
     var defaultDurationSeconds: Int {
         switch self {
         case .workout: return 3600      // 60 min

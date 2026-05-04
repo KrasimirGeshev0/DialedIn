@@ -2,10 +2,10 @@ import SwiftUI
 import SwiftData
 import ActivityKit
 
-/// Main entry point of the DialedIn app.
-/// Think of this like `public static void main(String[] args)` in Java.
 @main
 struct DialedInApp: App {
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
         WindowGroup {
@@ -13,7 +13,8 @@ struct DialedInApp: App {
         }
         .modelContainer(for: [
             Reminder.self, ReminderEntry.self,
-            Activity.self, ActivitySession.self
+            Activity.self, ActivitySession.self,
+            Meal.self
         ])
     }
 }

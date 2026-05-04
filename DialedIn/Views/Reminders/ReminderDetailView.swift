@@ -11,6 +11,7 @@ struct ReminderDetailView: View {
     @State private var todayValue: String = ""
     @State private var todayNote: String = ""
     @State private var showingEdit = false
+    @State private var errorMessage: String?
 
     private var recentEntries: [ReminderEntry] {
         let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
@@ -49,6 +50,14 @@ struct ReminderDetailView: View {
         .sheet(isPresented: $showingEdit) {
             AddReminderView(editingReminder: reminder)
         }
+        .alert("Грешка", isPresented: Binding(
+            get: { errorMessage != nil },
+            set: { if !$0 { errorMessage = nil } }
+        )) {
+            Button("OK") { errorMessage = nil }
+        } message: {
+            Text(errorMessage ?? "")
+        }
         .onAppear {
             if let entry = todayEntry {
                 todayValue = entry.value > 0 ? String(entry.value) : ""
@@ -73,7 +82,8 @@ struct ReminderDetailView: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: AppTheme.cardRadius))
+        .shadow(color: AppTheme.cardShadow, radius: AppTheme.cardShadowRadius, y: 2)
     }
 
     // MARK: - Check-In
@@ -90,11 +100,11 @@ struct ReminderDetailView: View {
                         Text(reminder.isCompletedToday ? "Изпълнено!" : "Маркирай като изпълнено")
                     }
                     .font(.body.weight(.medium))
-                    .foregroundStyle(reminder.isCompletedToday ? .green : .primary)
+                    .foregroundStyle(reminder.isCompletedToday ? AppTheme.completedColor : .primary)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(
-                        reminder.isCompletedToday ? Color.green.opacity(0.15) : Color.gray.opacity(0.1),
+                        reminder.isCompletedToday ? AppTheme.completedColor.opacity(0.15) : Color.gray.opacity(0.1),
                         in: RoundedRectangle(cornerRadius: 12)
                     )
                 }
@@ -107,6 +117,7 @@ struct ReminderDetailView: View {
                         .foregroundStyle(.secondary)
                     Button("Запиши") { saveNumericEntry() }
                         .buttonStyle(.borderedProminent)
+                        .tint(AppTheme.accent)
                 }
             }
 
@@ -115,7 +126,8 @@ struct ReminderDetailView: View {
                 .lineLimit(2...4)
         }
         .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: AppTheme.cardRadius))
+        .shadow(color: AppTheme.cardShadow, radius: AppTheme.cardShadowRadius, y: 2)
     }
 
     // MARK: - Streaks
@@ -134,7 +146,7 @@ struct ReminderDetailView: View {
             VStack(spacing: 4) {
                 Text("\(reminder.bestStreak)")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(AppTheme.accent)
                 Text("Най-добър")
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -143,7 +155,7 @@ struct ReminderDetailView: View {
             VStack(spacing: 4) {
                 Text("\(reminder.entries.filter(\.isCompleted).count)")
                     .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundStyle(.green)
+                    .foregroundStyle(AppTheme.completedColor)
                 Text("Общо дни")
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -151,7 +163,8 @@ struct ReminderDetailView: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: AppTheme.cardRadius))
+        .shadow(color: AppTheme.cardShadow, radius: AppTheme.cardShadowRadius, y: 2)
     }
 
     // MARK: - Chart
@@ -167,7 +180,7 @@ struct ReminderDetailView: View {
                         x: .value("Дата", entry.date, unit: .day),
                         y: .value("Статус", entry.isCompleted ? 1 : 0)
                     )
-                    .foregroundStyle(entry.isCompleted ? .green : .gray.opacity(0.3))
+                    .foregroundStyle(entry.isCompleted ? AppTheme.accent : .gray.opacity(0.3))
                 } else {
                     LineMark(
                         x: .value("Дата", entry.date, unit: .day),
@@ -189,7 +202,8 @@ struct ReminderDetailView: View {
             }
         }
         .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: AppTheme.cardRadius))
+        .shadow(color: AppTheme.cardShadow, radius: AppTheme.cardShadowRadius, y: 2)
     }
 
     // MARK: - Actions
@@ -204,7 +218,12 @@ struct ReminderDetailView: View {
             entry.reminder = reminder
             modelContext.insert(entry)
         }
-        updateStreak()
+        do {
+            try modelContext.save()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
+        }
+        reminder.recalculateStreak()
     }
 
     private func saveNumericEntry() {
@@ -221,31 +240,12 @@ struct ReminderDetailView: View {
             entry.reminder = reminder
             modelContext.insert(entry)
         }
-        updateStreak()
-    }
-
-    private func updateStreak() {
-        var streak = 0
-        let calendar = Calendar.current
-        var checkDate = calendar.startOfDay(for: Date())
-
-        while true {
-            let hasCompleted = reminder.entries.contains {
-                calendar.isDate($0.date, inSameDayAs: checkDate) && $0.isCompleted
-            }
-            if hasCompleted {
-                streak += 1
-                guard let prev = calendar.date(byAdding: .day, value: -1, to: checkDate) else { break }
-                checkDate = prev
-            } else {
-                break
-            }
+        do {
+            try modelContext.save()
+        } catch {
+            errorMessage = AppError.saveFailed(error.localizedDescription).localizedDescription
         }
-
-        reminder.currentStreak = streak
-        if streak > reminder.bestStreak {
-            reminder.bestStreak = streak
-        }
+        reminder.recalculateStreak()
     }
 }
 

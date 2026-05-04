@@ -80,6 +80,32 @@ final class Reminder {
         self.reminderMinute = reminderMinute
         self.sortOrder = sortOrder
     }
+
+    // MARK: - Streak
+
+    func recalculateStreak() {
+        var streak = 0
+        let calendar = Calendar.current
+        var checkDate = calendar.startOfDay(for: Date())
+
+        while true {
+            let hasCompleted = entries.contains {
+                calendar.isDate($0.date, inSameDayAs: checkDate) && $0.isCompleted
+            }
+            if hasCompleted {
+                streak += 1
+                guard let prev = calendar.date(byAdding: .day, value: -1, to: checkDate) else { break }
+                checkDate = prev
+            } else {
+                break
+            }
+        }
+
+        currentStreak = streak
+        if streak > bestStreak {
+            bestStreak = streak
+        }
+    }
 }
 
 // MARK: - TrackingType Enum
