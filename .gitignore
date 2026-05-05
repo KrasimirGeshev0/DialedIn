@@ -37,3 +37,6 @@ fastlane/test_output
 
 # Secrets
 DialedIn/Services/APIKeys.swift
+
+# Temp files
+~$*
